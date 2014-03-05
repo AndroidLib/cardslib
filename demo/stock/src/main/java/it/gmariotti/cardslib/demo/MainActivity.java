@@ -140,7 +140,7 @@ public class MainActivity extends Activity {
         mHelper = new IabHelper(this, base64EncodedPublicKey);
         mHelper.enableDebugLogging(true);
 
-        mHelper.startSetup(new IabHelper.OnIabSetupFinishedListener() {
+        if (false) mHelper.startSetup(new IabHelper.OnIabSetupFinishedListener() {
             public void onIabSetupFinished(IabResult result) {
                 if (!result.isSuccess()) {
                     // Oh noes, there was a problem.
