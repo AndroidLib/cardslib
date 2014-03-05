@@ -8,6 +8,23 @@
 * Disabled IabHelper at MainActivity:143 (in-app building stuff for making donation to the original developer) to allow starting emulator
 * Copied demo/stock/src/main/aidl to demo/stock/src/main/java due to lack of support of multiple source directories in
   maven-android-plugin (https://code.google.com/p/maven-android-plugin/issues/detail?id=173)
+* Change theme
+@android:style/Theme.Holo.Light ->  @style/Theme.AppCompat.Light
+* Android support lib
+  Activity -> ActionBarActivity
+  invalidateOptionsMenu -> supportInvalidateOptionsMenu
+  item.getActionProvider() -> MenuItemCompat.getActionProvider(item)
+  getFragmentManager() -> getSupportFragmentManager()
+  import android.app.Fragment;
+  import android.app.FragmentManager; -> android.support.v4.app
+  import android.app.FragmentTransaction; -> import android.support.v4.app.FragmentTransaction;
+  import android.app.DialogFragment; -> import android.support.v4.app.DialogFragment
+  import android.widget.PopupMenu -> android.support.v7.widget.PopupMenu
+  import android.widget.ShareActionProvider; ->
+  import android.app.LoaderManager; -> import android.support.v4.app.LoaderManager;
+
+  import android.content.CursorLoader; -> import android.support.v4.content.CursorLoader;
+  import android.content.Loader; -> android.support.v4.content.Loader
 
 === Maven
 * maven android deployer
