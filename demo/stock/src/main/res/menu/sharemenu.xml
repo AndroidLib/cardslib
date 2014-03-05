@@ -22,9 +22,9 @@
     xmlns:compat-v7="http://schemas.android.com/apk/res-auto">
     <item
         android:id="@+id/carddemo_menu_item_share"
-        android:showAsAction="ifRoom"
         android:title="@string/action_share"
         android:orderInCategory="1"
+        compat-v7:showAsAction="ifRoom"
         compat-v7:actionProviderClass="android.support.v7.widget.ShareActionProvider" />
 
     <!--  <item
