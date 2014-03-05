@@ -10,21 +10,20 @@
   maven-android-plugin (https://code.google.com/p/maven-android-plugin/issues/detail?id=173)
 * Change theme
 @android:style/Theme.Holo.Light ->  @style/Theme.AppCompat.Light
-* Android support lib
-  Activity -> ActionBarActivity
-  invalidateOptionsMenu -> supportInvalidateOptionsMenu
-  item.getActionProvider() -> MenuItemCompat.getActionProvider(item)
-  getFragmentManager() -> getSupportFragmentManager()
-  import android.app.Fragment;
-  import android.app.FragmentManager; -> android.support.v4.app
-  import android.app.FragmentTransaction; -> import android.support.v4.app.FragmentTransaction;
-  import android.app.DialogFragment; -> import android.support.v4.app.DialogFragment
-  import android.widget.PopupMenu -> android.support.v7.widget.PopupMenu
-  import android.widget.ShareActionProvider; ->
-  import android.app.LoaderManager; -> import android.support.v4.app.LoaderManager;
-
-  import android.content.CursorLoader; -> import android.support.v4.content.CursorLoader;
-  import android.content.Loader; -> android.support.v4.content.Loader
+* Android support lib Java source code changes
+ * Activity -> ActionBarActivity
+ * invalidateOptionsMenu -> supportInvalidateOptionsMenu
+ * item.getActionProvider() -> MenuItemCompat.getActionProvider(item)
+ * getFragmentManager() -> getSupportFragmentManager()
+ * import android.app.Fragment; -> import android.support.v4.app.Fragment;
+ * import android.app.FragmentManager; -> android.support.v4.app
+ * import android.app.FragmentTransaction; -> import android.support.v4.app.FragmentTransaction;
+ * import android.app.DialogFragment; -> import android.support.v4.app.DialogFragment
+ * import android.widget.PopupMenu -> android.support.v7.widget.PopupMenu
+ * import android.widget.ShareActionProvider; ->
+ * import android.app.LoaderManager; -> import android.support.v4.app.LoaderManager;
+ * import android.content.CursorLoader; -> import android.support.v4.content.CursorLoader;
+ * import android.content.Loader; -> android.support.v4.content.Loader
 
 # Maven
 * maven android deployer
