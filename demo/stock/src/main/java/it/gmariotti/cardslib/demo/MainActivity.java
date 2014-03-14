@@ -122,8 +122,8 @@ public class MainActivity extends ActionBarActivity {
         setContentView(R.layout.demo_activity_main);
 
         // enable ActionBar app icon to behave as action to toggle nav drawer
-        getActionBar().setDisplayHomeAsUpEnabled(true);
-        getActionBar().setHomeButtonEnabled(true);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+        getSupportActionBar().setHomeButtonEnabled(true);
 
         mDrawer = (DrawerLayout) findViewById(R.id.drawer_layout);
 
@@ -250,13 +250,13 @@ public class MainActivity extends ActionBarActivity {
 
         @Override
         public void onDrawerClosed(View view) {
-            getActionBar().setTitle(getString(mCurrentTitle));
+            getSupportActionBar().setTitle(getString(mCurrentTitle));
             supportInvalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
         }
 
         @Override
         public void onDrawerOpened(View drawerView) {
-            getActionBar().setTitle(getString(R.string.app_name));
+            getSupportActionBar().setTitle(getString(R.string.app_name));
             supportInvalidateOptionsMenu(); // creates call to onPrepareOptionsMenu()
         }
     }
