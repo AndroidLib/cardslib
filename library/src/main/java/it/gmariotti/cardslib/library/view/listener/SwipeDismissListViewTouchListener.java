@@ -18,6 +18,7 @@
 
 package it.gmariotti.cardslib.library.view.listener;
 
+import android.os.Build;
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.AnimatorListenerAdapter;
 import com.nineoldandroids.animation.ValueAnimator;
@@ -37,6 +38,8 @@ import java.util.Collections;
 import java.util.List;
 
 import it.gmariotti.cardslib.library.internal.Card;
+
+import static com.nineoldandroids.view.ViewPropertyAnimator.animate;
 
 /**
  * It is based on Roman Nurik code.
@@ -278,7 +281,7 @@ public class SwipeDismissListViewTouchListener implements View.OnTouchListener {
 
                 if (mDownView != null) {
                     // cancel
-                    mDownView.animate()
+                    animate(mDownView)
                             .translationX(0)
                             .alpha(1)
                             .setDuration(mAnimationTime)
@@ -338,7 +341,7 @@ public class SwipeDismissListViewTouchListener implements View.OnTouchListener {
             return;
         }
 
-        view.animate()
+        animate(view)
                 .translationX(dismissRight ? mViewWidth : -mViewWidth)
                 .alpha(0)
                 .setDuration(mAnimationTime)
@@ -399,7 +402,7 @@ public class SwipeDismissListViewTouchListener implements View.OnTouchListener {
                     ViewGroup.LayoutParams lp;
                     for (PendingDismissData pendingDismiss : mPendingDismisses) {
                         // Reset view presentation
-                        pendingDismiss.view.setAlpha(1f);
+                        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) pendingDismiss.view.setAlpha(1f);
                         pendingDismiss.view.setTranslationX(0);
                         lp = pendingDismiss.view.getLayoutParams();
                         lp.height = 0;

@@ -18,10 +18,9 @@
 
 package it.gmariotti.cardslib.library.internal.overflowanimation;
 
+import android.os.Build;
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.AnimatorListenerAdapter;
-import android.animation.AnimatorSet;
-import android.animation.ObjectAnimator;
 import android.content.Context;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -30,8 +29,12 @@ import android.view.ViewGroup;
 
 import java.util.ArrayList;
 
+import com.nineoldandroids.animation.AnimatorSet;
+import com.nineoldandroids.animation.ObjectAnimator;
 import it.gmariotti.cardslib.library.R;
 import it.gmariotti.cardslib.library.internal.Card;
+
+import static com.nineoldandroids.view.ViewPropertyAnimator.animate;
 
 /**
  * Simple implementation with only 2 card (the original and the overlay)
@@ -135,10 +138,10 @@ public abstract class TwoCardOverlayAnimation extends BaseCardOverlayAnimation {
                     }
                     mInternalLayoutOverlay.addView(viewIn);
 
-                    viewIn.setAlpha(0);
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) viewIn.setAlpha(0);
                     viewIn.setVisibility(View.VISIBLE);
 
-                    viewIn.animate()
+                    animate(viewIn)
                             .alpha(1f)
                             .setDuration(getAnimationDuration())
                             .setListener(null);
@@ -175,7 +178,7 @@ public abstract class TwoCardOverlayAnimation extends BaseCardOverlayAnimation {
         final View[] viewsFirstOut = getOutViews(card, infoAnimation);
 
         if (viewLastIn != null) {
-            viewLastIn.animate()
+            animate(viewLastIn)
                     .alpha(0f)
                     .setDuration(getAnimationDuration())
                     .setListener(new AnimatorListenerAdapter() {
@@ -196,7 +199,7 @@ public abstract class TwoCardOverlayAnimation extends BaseCardOverlayAnimation {
 
                             for (final View viewOut : viewsLastOut) {
                                 if (viewOut != null) {
-                                    viewOut.animate()
+                                    animate(viewOut)
                                             .alpha(1f)
                                             .setDuration(getAnimationDuration());
                                 }

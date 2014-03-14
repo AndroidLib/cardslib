@@ -18,6 +18,7 @@
 
 package it.gmariotti.cardslib.library.view.listener;
 
+import android.os.Build;
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.AnimatorListenerAdapter;
 import android.os.Bundle;
@@ -25,10 +26,12 @@ import android.os.Handler;
 import android.os.Parcelable;
 import android.text.TextUtils;
 import android.view.View;
-import android.view.ViewPropertyAnimator;
 import android.widget.TextView;
 
+import com.nineoldandroids.view.ViewPropertyAnimator;
 import it.gmariotti.cardslib.library.R;
+
+import static com.nineoldandroids.view.ViewPropertyAnimator.animate;
 
 /**
  * It is based on Roman Nurik code.
@@ -68,7 +71,7 @@ public class UndoBarController {
 
     public UndoBarController(View undoBarView, UndoListener undoListener,UndoBarUIElements undoBarUIElements) {
         mBarView = undoBarView;
-        mBarAnimator = mBarView.animate();
+        mBarAnimator = animate(mBarView);
         mUndoListener = undoListener;
 
         if (undoBarUIElements==null)
@@ -100,7 +103,7 @@ public class UndoBarController {
 
         mBarView.setVisibility(View.VISIBLE);
         if (immediate) {
-            mBarView.setAlpha(1);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) mBarView.setAlpha(1);
         } else {
             mBarAnimator.cancel();
             mBarAnimator
@@ -116,7 +119,7 @@ public class UndoBarController {
         mHideHandler.removeCallbacks(mHideRunnable);
         if (immediate) {
             mBarView.setVisibility(View.GONE);
-            mBarView.setAlpha(0);
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB) mBarView.setAlpha(0);
             mUndoMessage = null;
             mUndoToken = null;
 

@@ -12,6 +12,7 @@
 @android:style/Theme.Holo.Light ->  @style/Theme.AppCompat.Light
 * Android support lib Java source code changes
  * Activity -> ActionBarActivity
+ * getActionBar() -> getSupportActionBar()
  * invalidateOptionsMenu -> supportInvalidateOptionsMenu
  * item.getActionProvider() -> MenuItemCompat.getActionProvider(item)
  * getFragmentManager() -> getSupportFragmentManager()
@@ -27,7 +28,13 @@
 * android.animation.*
  * import android.animation.Animator; -> import com.nineoldandroids.animation.Animator;
  * import android.animation.AnimatorListenerAdapter; -> import com.nineoldandroids.animation.AnimatorListenerAdapter;
- * import import android.animation.ValueAnimator; -> import com.nineoldandroids.animation.ValueAnimator
+ * import android.animation.ValueAnimator; -> import com.nineoldandroids.animation.ValueAnimator;
+ * import android.animation.ObjectAnimator -> import com.nineoldandroids.animation.ObjectAnimator;
+ * import import android.animation.AnimatorSet; -> import com.nineoldandroids.animation.AnimatorSet;
+ * import android.view.ViewPropertyAnimator; -> import com.nineoldandroids.view.ViewPropertyAnimator;
+ * View.animate -> com.nineoldandroids.view.ViewPropertyAnimator.animate(View)
+* if (Build.VERSION.SDK_INT>= Build.VERSION_CODES.HONEYCOMB)
+ * mBarView.setAlpha(0);
 
 
 

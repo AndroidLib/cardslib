@@ -19,6 +19,7 @@
 
 package it.gmariotti.cardslib.library.view.listener;
 
+import android.os.Build;
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.AnimatorListenerAdapter;
 import com.nineoldandroids.animation.ValueAnimator;
@@ -30,6 +31,8 @@ import android.view.ViewGroup;
 
 import it.gmariotti.cardslib.library.internal.Card;
 import it.gmariotti.cardslib.library.view.CardView;
+
+import static com.nineoldandroids.view.ViewPropertyAnimator.animate;
 
 /**
  * It is based on Roman Nurik code.
@@ -166,7 +169,7 @@ public class SwipeDismissViewTouchListener implements View.OnTouchListener {
                 if (dismiss) {
                     // dismiss
 
-                    mCardView.animate()
+                    animate(mCardView)
                             .translationX(dismissRight ? mViewWidth : -mViewWidth)
                             .alpha(0).setDuration(mAnimationTime)
                             .setListener(new AnimatorListenerAdapter() {
@@ -177,7 +180,7 @@ public class SwipeDismissViewTouchListener implements View.OnTouchListener {
                             });
                 } else {
                     // cancel
-                    mCardView.animate().translationX(0).alpha(1)
+                    animate(mCardView).translationX(0).alpha(1)
                             .setDuration(mAnimationTime).setListener(null);
                 }
                 mVelocityTracker.recycle();
@@ -210,7 +213,8 @@ public class SwipeDismissViewTouchListener implements View.OnTouchListener {
                 if (mSwiping) {
                     mTranslationX = deltaX;
                     mCardView.setTranslationX(deltaX);
-                    mCardView.setAlpha(Math.max(0f,
+                    if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
+                        mCardView.setAlpha(Math.max(0f,
                             Math.min(1f, 1f - 2f * Math.abs(deltaX) / mViewWidth)));
                     return true;
                 }
@@ -238,7 +242,8 @@ public class SwipeDismissViewTouchListener implements View.OnTouchListener {
 
                 mCallbacks.onDismiss(mCardView,mToken);
                 // Reset view presentation
-                mCardView.setAlpha(1f);
+                if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.HONEYCOMB)
+                    mCardView.setAlpha(1f);
                 mCardView.setTranslationX(0);
                 //ViewGroup.LayoutParams lp = mCardView.getLayoutParams();
                 lp.height = originalHeight;
