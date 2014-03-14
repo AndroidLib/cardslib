@@ -19,9 +19,9 @@
 
 package it.gmariotti.cardslib.library.view.listener;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ValueAnimator;
+import com.nineoldandroids.animation.Animator;
+import com.nineoldandroids.animation.AnimatorListenerAdapter;
+import com.nineoldandroids.animation.ValueAnimator;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;

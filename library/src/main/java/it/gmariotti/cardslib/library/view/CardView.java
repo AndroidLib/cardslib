@@ -18,9 +18,9 @@
 
 package it.gmariotti.cardslib.library.view;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ValueAnimator;
+import com.nineoldandroids.animation.Animator;
+import com.nineoldandroids.animation.AnimatorListenerAdapter;
+import com.nineoldandroids.animation.ValueAnimator;
 import android.annotation.SuppressLint;
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -98,7 +98,8 @@ import it.gmariotti.cardslib.library.view.listener.SwipeDismissViewTouchListener
  * </p>
  * @author Gabriele Mariotti (gabri.mariotti@gmail.com)
  */
-public class CardView extends BaseCardView {
+public class
+        CardView extends BaseCardView {
 
     //--------------------------------------------------------------------------
     //

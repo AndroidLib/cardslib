@@ -24,6 +24,12 @@
  * import android.app.LoaderManager; -> import android.support.v4.app.LoaderManager;
  * import android.content.CursorLoader; -> import android.support.v4.content.CursorLoader;
  * import android.content.Loader; -> android.support.v4.content.Loader
+* android.animation.*
+ * import android.animation.Animator; -> import com.nineoldandroids.animation.Animator;
+ * import android.animation.AnimatorListenerAdapter; -> import com.nineoldandroids.animation.AnimatorListenerAdapter;
+ * import import android.animation.ValueAnimator; -> import com.nineoldandroids.animation.ValueAnimator
+
+
 
 # Maven
 * maven android deployer

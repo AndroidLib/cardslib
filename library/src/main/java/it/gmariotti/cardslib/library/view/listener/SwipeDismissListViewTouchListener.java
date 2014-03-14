@@ -18,9 +18,9 @@
 
 package it.gmariotti.cardslib.library.view.listener;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
-import android.animation.ValueAnimator;
+import com.nineoldandroids.animation.Animator;
+import com.nineoldandroids.animation.AnimatorListenerAdapter;
+import com.nineoldandroids.animation.ValueAnimator;
 import android.graphics.Rect;
 import android.os.SystemClock;
 import android.view.MotionEvent;

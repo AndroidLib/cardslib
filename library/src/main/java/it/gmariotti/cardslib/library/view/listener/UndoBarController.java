@@ -18,8 +18,8 @@
 
 package it.gmariotti.cardslib.library.view.listener;
 
-import android.animation.Animator;
-import android.animation.AnimatorListenerAdapter;
+import com.nineoldandroids.animation.Animator;
+import com.nineoldandroids.animation.AnimatorListenerAdapter;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Parcelable;
